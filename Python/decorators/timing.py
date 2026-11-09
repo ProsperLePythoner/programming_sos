@@ -11,7 +11,7 @@ def timer(func):
         print(f"\nExecution time: {end - start:.4f} seconds\n")
     return wrapper
 
-@timer
+@timer # pass the long_running_function to the timer decorator
 def long_running_function():
     """
     Simulates a long-running function by sleeping for 5 seconds.

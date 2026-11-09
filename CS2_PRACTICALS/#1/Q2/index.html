@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>School Sports Day</title>
+</head>
+<body>
+    <main class="main-container">
+        <h1>School Sports Day - Participant Registration</h1>
+
+        <section class="secondary-container">
+            <form class="register-participant" id="register">
+                <h2>Register Participant<hr></h2>
+
+                <div class="input-container">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullName" name="fullname" placeholder="e.g. Neema Peter" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="class">Class</label>
+                    <input type="text" id="class" name="class" placeholder="e.g. Form Six A" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="event">Event</label>
+                    <select id="event" name="event">
+                        <option value="100m Sprint">100m Sprint</option>
+                        <option value="200m Sprint">200m Sprint</option>
+                        <option value="Long Jump">Long jump</option>
+                        <option value="High Jump">High jump</option>
+                        <option value="4x100m Relay">4x100m Relay</option>
+                    </select>
+                </div>
+
+                <fieldset class="input-container">
+                    <legend>House / Team</legend>
+                    
+                    <label>
+                        <input type="radio" value="Red House" name="house" checked> Red House
+                    </label>
+                    <label>
+                        <input type="radio" value="Blue House" name="house"> Blue House
+                    </label>
+                    <label>
+                        <input type="radio" value="Green House" name="house"> Green House
+                    </label>
+                </fieldset>
+
+                <div class="input-container">
+                    <label for="phone">Guardian Phone</label>
+                    <input type="tel" name="phone" id="phone" inputmode="tel" placeholder="0712345678" required>
+                </div>
+
+                <button id="registerBtn" type="submit">Register Participant</button>
+            </form>
+
+            <div class="registered-participants" id="registered">
+                <table id="table">
+                    <h2 class="table-heading">Registered Participants</h2>
+
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Event</th>
+                            <th>House</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

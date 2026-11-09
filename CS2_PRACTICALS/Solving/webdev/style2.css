@@ -1,0 +1,325 @@
+
+/* 1. Reset and design tokens */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: #eff6ff;
+
+    --bg-color: #f1f5f9;
+    --surface: #ffffff;
+
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+
+    --border-color: #cbd5e1;
+    --focus-ring: rgba(37, 99, 235, 0.2);
+
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+
+    --radius: 0.625rem;
+    --radius-lg: 1rem;
+
+    --shadow:
+        0 4px 12px rgba(15, 23, 42, 0.06);
+
+    --font-body:
+        Inter, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* 2. Global styles */
+
+html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: var(--space-lg);
+
+    background: var(--bg-color);
+    color: var(--text-main);
+
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button,
+select {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+}
+
+/* 3. Page layout */
+
+.main-container {
+    width: min(100%, 1200px);
+    margin-inline: auto;
+}
+
+.main-container > h1 {
+    margin: 0 0 var(--space-xl);
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+}
+
+/* Form and participants area */
+
+.secondary-container {
+    display: grid;
+    grid-template-columns:
+        minmax(280px, 0.8fr)
+        minmax(0, 1.2fr);
+
+    align-items: start;
+    gap: var(--space-lg);
+}
+
+/* 4. Registration form */
+
+.register-participant {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+
+    min-width: 0;
+    padding: var(--space-lg);
+
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+}
+
+.register-participant h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.register-participant h2 hr {
+    margin-top: var(--space-md);
+    border: 0;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Input groups */
+
+.input-container {
+    min-width: 0;
+}
+
+.input-container > label,
+.input-container > legend {
+    margin-bottom: 0.4rem;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.input-container input[type="text"],
+.input-container input[type="tel"],
+.input-container select {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.65rem 0.75rem;
+
+    color: var(--text-main);
+    background: var(--surface);
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.input-container input::placeholder {
+    color: #94a3b8;
+}
+
+.input-container input:focus,
+.input-container select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--focus-ring);
+    outline: none;
+}
+
+/* House selection */
+
+fieldset.input-container {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.input-container legend {
+    padding: 0;
+}
+
+.input-container label:has(input[type="radio"]) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+
+    margin-bottom: var(--space-sm);
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.input-container input[type="radio"] {
+    width: 1rem;
+    height: 1rem;
+    margin: 0;
+    accent-color: var(--primary);
+}
+
+/* 5. Primary action */
+
+.register-participant button {
+    width: 100%;
+    min-height: 46px;
+    padding: 0.75rem 1rem;
+
+    color: #ffffff;
+    background: var(--primary);
+
+    border: 0;
+    border-radius: var(--radius);
+
+    font-weight: 600;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.register-participant button:hover {
+    background: var(--primary-hover);
+}
+
+.register-participant button:active {
+    transform: translateY(1px);
+}
+
+/* 6. Participants table container */
+
+.registered-participants {
+    min-width: 0;
+    overflow-x: auto;
+
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+}
+
+/* 7. Table */
+
+#table {
+    width: 100%;
+    min-width: 480px;
+    border-collapse: collapse;
+
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+#table th,
+#table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+#table th {
+    color: var(--text-muted);
+    background: #f8fafc;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+#table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+#table tbody tr:nth-child(even) {
+    background-color: #b9d3f7;
+}
+
+#table tbody tr:hover {
+    background: var(--primary-light);
+}
+
+/* 8. Responsive layouts */
+
+@media (max-width: 800px) {
+    body {
+        padding: var(--space-md);
+    }
+
+    .secondary-container {
+        grid-template-columns: 1fr;
+    }
+
+    .main-container > h1 {
+        margin-bottom: var(--space-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0.75rem;
+    }
+
+    .register-participant {
+        padding: var(--space-md);
+    }
+
+    .main-container > h1 {
+        font-size: 1.6rem;
+    }
+
+    #table th,
+    #table td {
+        padding: 0.75rem;
+    }
+}
+
+/* 9. Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
